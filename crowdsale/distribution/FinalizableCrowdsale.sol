@@ -2,7 +2,6 @@
 
 pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts/utils/math/Math.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "../validation/TimedCrowdsale.sol";
 
@@ -12,8 +11,6 @@ import "../validation/TimedCrowdsale.sol";
  * after finishing.
  */
 abstract contract FinalizableCrowdsale is TimedCrowdsale, Ownable {
-  using Math for uint256;
-
   bool public isFinalized = false;
 
   event Finalized();

@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts/utils/math/Math.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
@@ -11,7 +10,6 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  * and forwarding it if crowdsale is successful.
  */
 contract RefundVault is Ownable {
-  using Math for uint256;
 
   enum State { Active, Refunding, Closed }
 
@@ -37,7 +35,7 @@ contract RefundVault is Ownable {
    */
   function deposit(address investor) onlyOwner public payable {
     require(state == State.Active);
-    deposited[investor] = deposited[investor] + (msg.value);
+    deposited[investor] = deposited[investor] + msg.value;
   }
 
   function close() onlyOwner public {

@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts/utils/math/Math.sol";
 import "../validation/TimedCrowdsale.sol";
 
 /**
@@ -11,8 +10,6 @@ import "../validation/TimedCrowdsale.sol";
  * the amount of tokens per wei contributed. Thus, the initial rate must be greater than the final rate.
  */
 abstract contract IncreasingPriceCrowdsale is TimedCrowdsale {
-  using Math for uint256;
-
   uint256 public initialRate;
   uint256 public finalRate;
 

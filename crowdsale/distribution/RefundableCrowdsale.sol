@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts/utils/math/Math.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 import "../distribution/utils/RefundVault.sol";
@@ -15,8 +14,6 @@ import "../distribution/FinalizableCrowdsale.sol";
  * Uses a RefundVault as the crowdsale's vault.
  */
 abstract contract RefundableCrowdsale is FinalizableCrowdsale {
-  using Math for uint256;
-
   // minimum amount of funds to be raised in weis
   uint256 public goal;
 
